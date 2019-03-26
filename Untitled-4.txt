@@ -1,0 +1,87 @@
+// data.js
+
+var tableData = data;
+
+
+
+
+
+var tbody = d3.select("tbody");
+
+
+
+function buildTable(data) {
+
+  // First, clear out any existing data
+
+  tbody.html("");
+
+
+
+  // looping through each object in the data
+
+  // append a row and cells for each value in the row
+
+  data.forEach((dataRow) => {
+
+    
+
+    var row = tbody.append("tr");
+
+
+
+    // Loop through each field in the dataRow and add
+
+    // each value as a table cell (td)
+
+    Object.values(dataRow).forEach((val) => {
+
+      var cell = row.append("td");
+
+        cell.text(val);
+
+      }
+
+    );
+
+  });
+
+}
+
+
+
+function handleClick() {
+
+
+
+  // Prevent the form from refreshing the page
+
+  d3.event.preventDefault();
+
+
+
+  
+
+  var date = d3.select("#datetime").property("value");
+
+  let filteredData = tableData;
+
+ if (date) {
+
+
+    filteredData = filteredData.filter(row => row.datetime === date);
+
+  }
+
+  buildTable(filteredData);
+
+}
+
+
+d3.selectAll("#filter-btn").on("click", handleClick);
+
+
+
+// Building table when it is loading
+
+buildTable(tableData);
