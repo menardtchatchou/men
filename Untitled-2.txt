@@ -1,449 +1,215 @@
-* {
+<!DOCTYPE html>
 
-  box-sizing: border-box;
+<html lang="en-us">
 
-  font-family: Ubuntu, sans-serif;
+  <head>
 
-}
 
 
+    <meta charset="UTF-8">
 
-html,
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body {
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  height: 100%;
 
-  padding: 0;
 
-  margin: 0;
+    <title>Bootstrap Visualization Dashboard</title>
 
-}
 
 
+    <!-- Boostrap Stylesheet -->
 
-/* The wrapper contains all of the page's content besides the footer, which is pushed to the bottom of the page */
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" media="screen">
 
-.wrapper {
 
-  position: relative;
 
-  min-height: 100%;
+    <!-- Our own CSS stylesheet -->
 
-  padding-bottom: 130px;
+    <link rel="stylesheet" href="../assets/css/styles.css" media="screen">
 
-  overflow: auto;
 
-}
 
+  </head>
 
 
-/* The footer is positioned at the bottom of the page */
 
-.footer {
+  <body>
 
-  position: absolute;
+    <!-- Start of navbar -->
 
-  right: 0;
+    <nav class="navbar navbar-default">
 
-  bottom: 0;
+      <div class="container-fluid navbar-custom">
 
-  left: 0;
 
-  min-height: 100px;
 
-  background: #4e5d6c;
+        <!-- Brand and toggle get grouped for better mobile display -->
 
-}
+        <div class="row">
 
+          <div class="navbar-header">
 
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 
-/* The code styles the text at the bottom of the footer */
+              <span class="sr-only">Toggle Navigation</span>
 
-.footer > .bottom {
+              <span class="icon-bar"></span>
 
-  position: absolute;
+              <span class="icon-bar"></span>
 
-  right: 0;
+              <span class="icon-bar"></span>
 
-  bottom: 0;
+            </button>
 
-  left: 0;
+            <div class="col-xs-9 phone-nav">
 
-  padding: 5px;
+              <a class="navbar-brand" href="../index.html" id="logo">Lattitude</a>
 
-  background: #1b3146;
+            </div>
 
-}
+          </div>
 
 
 
-.navbar {
+          <!-- Collect the nav links, forms, and other content for toggling -->
 
-  padding: 5px;
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-  margin: 0;
+            <ul class="nav navbar-nav navbar-right navbar-right-custom">
 
-}
+              <li class="dropdown">
 
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plots <span class="caret"></span></a>
 
+                <ul class="dropdown-menu">
 
-/* This CSS styles the ufo icon in the navbar */
+                 <li><a href="temp.html">Max Temperature</a></li>
 
-.nav-ufo {
+                  <li><a href="humidity.html">Humidity</a></li>
 
-  position: absolute;
+                  <li><a href="cloudiness.html">Cloudiness</a></li>
 
-  bottom: 5px;
+                  <li><a href="wind.html">Wind Speed</a></li>
 
-  left: 150px;
+                </ul>
 
-  width: 35px;
+              </li>
 
-  color: white;
+              <li><a href="../comparison.html">Comparison</a></li>
 
-}
+              <li><a href="../data.html">Data</a></li>
 
+            </ul>
 
+          </div><!-- /.navbar-collapse -->
 
-/* Adding styles to the aside and filter form */
+        </div>
 
-.ufo-form {
+      </div><!-- /.container-fluid -->
 
-  margin-top: 50px;
+    </nav>
 
-}
+    <!-- End of navbar -->
 
 
 
-.filters .panel-body {
+    <!-- Start of container -->
 
-  padding: 0;
+    <div class="container">
 
-}
+      <section class="row">
 
+        <div class="col-md-8">
 
+          <article class="description-content">
 
-.filters {
+            <h1 class="description-header">Humidity</h1>
 
-  margin-top: 10px;
+            <hr class="description-hr"/>
 
-}
+            <img src="../assets/images/Fig2.png" alt="" class="img-responsive"/>
 
+            <p>With our current analysis, it is difficult to find any obvious correlation between latittude and humidity. There is a clear band of many data points at 100% humidity, and there do seem to be strong clusters of high humidity around the equator and in some other areas (e.g. a strong band of 0% humidity at latitude > 60). Further analysis is required.</p>
 
+          </article>
 
-select {
+        </div>
 
-  display: block;
+        <div class="col-md-4">
 
-  width: 100%;
 
-  padding: 8px;
 
-  color: #8e979f;
+          <!-- Start of Visualizations imageNav Area -->
 
-  outline: none;
+          <section id="imageNav-area">
 
-}
+            <div class="imageNav-content">
 
+              <h2 class="imageNav-header">Visualizations</h2>
 
+              <hr />
 
-#table-area th {
+              <div id="images">
 
-  text-align: center;
+                <a href="temp.html"><img src="../assets/images/Fig1.png" alt="Latitude vs. Max Temperature" class="imageNav-photo"></a>
 
-}
+                <a href="humidity.html"><img src="../assets/images/Fig2.png" alt="Latitude vs. Humidity" class="imageNav-photo active"></a>
 
+                <a href="cloudiness.html"><img src="../assets/images/Fig3.png" alt="Latitude vs. Cloudiness" class="imageNav-photo"></a>
 
+                <a href="wind.html"><img src="../assets/images/Fig4.png" alt="Latitude vs. Wind Speed" class="imageNav-photo"></a>
 
-#table-area th:first-child,
+              </div>
 
-#table-area th:nth-child(2),
+            </div>
 
-#table-area th:nth-child(6) {
+          </section>
 
-  min-width: 70px;
+          <!-- End of the Visualizations imageNav Area -->
 
-}
 
 
+        </div>
 
-.loader {
+      </section>
 
-  margin-top: 50px;
+    </div>
 
-}
+    <!-- End of container -->
 
 
 
-.margin-top-50 {
+    <!-- Start of footer -->
 
-  margin-top: 50px;
+    <footer class="footer navbar-fixed-bottom">
 
-}
+      <div class="two-toned-footer-color"></div>
 
+      <p class="text-muted text-muted-footer text-center">
 
+        &copy; Copyright Coding Bootcamp 2017
 
-/* The styles for the parallax */
+      </p>
 
-.hero {
+    </footer>
 
-  position: relative;
+    <!-- End of footer -->
 
-  height: 550px;
 
-  padding: 20px;
 
-  margin: 0;
+    <!-- jQuery CDN -->
 
-  background: black;
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-  background-image: url("../images/nasa.jpg");
 
-  background-attachment: fixed;
 
-  background-position: bottom center;
+    <!-- Bootstrap CDN -->
 
-  background-size: cover;
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-}
+  </body>
 
 
 
-.hero h1 {
-
-  margin-top: 200px;
-
-  font-size: 0.1rem;
-
-  animation: title 1.2s forwards linear;
-
-}
-
-
-
-.hero p {
-
-  font-size: 2rem;
-
-  opacity: 0;
-
-  animation: subtitle 1.2s forwards linear;
-
-  animation-delay: 1.2s;
-
-}
-
-
-
-/* input placeholder color changes */
-
-.form-control::-webkit-input-placeholder {
-
-  /* Chrome/Opera/Safari */
-
-  color: #8e979f;
-
-}
-
-
-
-.form-control::-moz-placeholder {
-
-  /* Firefox 19+ */
-
-  color: #8e979f;
-
-}
-
-
-
-.form-control:-ms-input-placeholder {
-
-  /* IE 10+ */
-
-  color: #8e979f;
-
-}
-
-
-
-.form-control:-moz-placeholder {
-
-  /* Firefox 18- */
-
-  color: #8e979f;
-
-}
-
-
-
-/* media queries which will only be activated at specific screen sizes */
-
-@media (max-width: 800px) {
-
-  #table-area td {
-
-    font-size: 1em;
-
-  }
-
-}
-
-
-
-@media (max-width: 500px) {
-
-  #table-area thead {
-
-    display: none;
-
-  }
-
-
-
-  #table-area tr td:first-child {
-
-    font-size: 1.8em;
-
-    font-weight: bold;
-
-    background: #1b3146;
-
-  }
-
-
-
-  #table-area tr td:last-child {
-
-    margin-bottom: 20px;
-
-  }
-
-
-
-  #table-area tr td:last-child::after {
-
-    display: block;
-
-    width: 100%;
-
-    height: 1px;
-
-    margin-top: 20px;
-
-    content: " ";
-
-    background: aliceblue;
-
-  }
-
-
-
-  #table-area td {
-
-    font-size: 1.25em;
-
-  }
-
-
-
-  #table-area tbody td {
-
-    display: block;
-
-    text-align: center;
-
-  }
-
-
-
-  #table-area tbody td::before {
-
-    display: block;
-
-    font-size: 1.4em;
-
-    font-weight: bold;
-
-    text-align: center;
-
-    content: attr(data-th);
-
-  }
-
-
-
-  .hero h1 {
-
-    animation: smaller-title 1.2s forwards linear;
-
-  }
-
-}
-
-
-
-/* keyframe animations which will be used to animate the title */
-
-@keyframes title {
-
-  from {
-
-    opacity: 0;
-
-  }
-
-
-
-  to {
-
-    font-size: 7.5rem;
-
-    opacity: 1;
-
-  }
-
-}
-
-
-
-@keyframes smaller-title {
-
-  from {
-
-    opacity: 0;
-
-  }
-
-
-
-  to {
-
-    font-size: 5.5rem;
-
-    opacity: 1;
-
-  }
-
-}
-
-
-
-@keyframes subtitle {
-
-  from {
-
-    opacity: 0;
-
-  }
-
-
-
-  to {
-
-    opacity: 1;
-
-  }
-
-}
+</html>
